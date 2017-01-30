@@ -1,26 +1,10 @@
-var div = React.DOM.div;
-var h1 = React.DOM.h1;
-
-
-//all components in React must have a render function, which must return a component.
-// if you comment out the return and check out the page, you will see:
-    //ReactCompositeComponent.render(): A valid React element (or null) must be returned. You may have returned undefined, an array or some other invalid object.
-var MyTitle = React.createClass({
-    render() {
-        return (
-                div (null,
-                     //props: short for properties.
-                     h1({style: {color: this.props.color}}, this.props.title)
-                     )
-                )
-    }
-})
-
-
-//methods for cleaner code
+var React = require('react')
+var ReactDOM = require('react-dom')
+var MyTitle = require('./MyTitle')
+var div = React.DOM.div
+// methods for cleaner code
 var MyTitleFactory = React.createFactory(MyTitle)
-ce = React.createElement
-
+var ce = React.createElement
 
 var MyFirstComponent = (
     div(null,
@@ -29,6 +13,6 @@ var MyFirstComponent = (
         React.createElement(MyTitle, {title: 'World', color: 'mediumaquamarine'}),
         ce(MyTitle, {title: '!', color: 'peru'})
     )
-);
+)
 
-ReactDOM.render(MyFirstComponent, document.getElementById('app'));
+ReactDOM.render(MyFirstComponent, document.getElementById('app'))
