@@ -9,7 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "build": "webpack js/ClientApp.js public/bundle.js"
   },
   "author": "",
   "license": "ISC"
