@@ -48,25 +48,37 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
-	var MyTitle = __webpack_require__(178);
 
 	//stateless component
 	// </> slash is necessary because it says don'tlook for closing tag
 
 	//Lowercase says you want to use something native from React
 	//Caps state a component you made
-	var MyFirstComponent = function MyFirstComponent() {
+
+	//class is reserved in js, so we need to use className for css
+	var App = function App() {
 		return React.createElement(
 			'div',
-			null,
-			React.createElement(MyTitle, { title: 'Whatevs', color: 'rebeccapurple' }),
-			React.createElement(MyTitle, { title: 'LOL', color: 'papayawhip' }),
-			React.createElement(MyTitle, { title: 'OMGLOLWTFBBQ', color: '#f06d06' }),
-			React.createElement('input', null)
+			{ className: 'app-container' },
+			React.createElement(
+				'div',
+				{ className: 'home-info' },
+				React.createElement(
+					'h1',
+					{ className: 'title' },
+					'svideo'
+				),
+				React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
+				React.createElement(
+					'button',
+					{ className: 'browse-all' },
+					'or Browse All'
+				)
+			)
 		);
 	};
 
-	ReactDOM.render(React.createElement(MyFirstComponent, null), document.getElementById('app'));
+	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21543,34 +21555,6 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var div = React.DOM.div;
-	var h1 = React.DOM.h1;
-
-	var MyTitle = React.createClass({
-	  displayName: 'MyTitle',
-	  render: function render() {
-	    var style = { color: this.props.color };
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h1',
-	        { style: style },
-	        this.props.title
-	      )
-	    );
-	  }
-	});
-
-	module.exports = MyTitle;
 
 /***/ }
 /******/ ]);
