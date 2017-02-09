@@ -49,16 +49,24 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 	var MyTitle = __webpack_require__(178);
-	var div = React.DOM.div;
-	// methods for cleaner code
-	var MyTitleFactory = React.createFactory(MyTitle);
-	var ce = React.createElement;
 
-	var MyFirstComponent = div(null,
-	// MyTitleFactory, React.createElement(MyTitle, null), and ce(MyTitle, null) all achieve the same thing
-	MyTitleFactory({ title: 'Hello', color: 'rebeccapurple' }), React.createElement(MyTitle, { title: 'World', color: 'mediumaquamarine' }), ce(MyTitle, { title: '!', color: 'peru' }));
+	//stateless component
+	// </> slash is necessary because it says don'tlook for closing tag
 
-	ReactDOM.render(MyFirstComponent, document.getElementById('app'));
+	//Lowercase says you want to use something native from React
+	//Caps state a component you made
+	var MyFirstComponent = function MyFirstComponent() {
+		return React.createElement(
+			'div',
+			null,
+			React.createElement(MyTitle, { title: 'Whatevs', color: 'rebeccapurple' }),
+			React.createElement(MyTitle, { title: 'LOL', color: 'papayawhip' }),
+			React.createElement(MyTitle, { title: 'OMGLOLWTFBBQ', color: '#f06d06' }),
+			React.createElement('input', null)
+		);
+	};
+
+	ReactDOM.render(React.createElement(MyFirstComponent, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21549,7 +21557,16 @@
 	var MyTitle = React.createClass({
 	  displayName: 'MyTitle',
 	  render: function render() {
-	    return div(null, h1({ style: { color: this.props.color } }, this.props.title));
+	    var style = { color: this.props.color };
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        { style: style },
+	        this.props.title
+	      )
+	    );
 	  }
 	});
 

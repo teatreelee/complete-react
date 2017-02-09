@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname, //allows you to know where you're running this from and run from anywhee
-  entry: './js/ClientApp.js', //where we enter our webpack (mainfile)
+  entry: './js/ClientApp.jsx', //where we enter our webpack (mainfile)
   output: {
     path: path.join(__dirname, '/public'),
     filename: 'bundle.js'
