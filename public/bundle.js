@@ -49,33 +49,33 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
 
-	//stateless component
+	// stateless component
 	// </> slash is necessary because it says don'tlook for closing tag
 
-	//Lowercase says you want to use something native from React
-	//Caps state a component you made
+	// Lowercase says you want to use something native from React
+	// Caps state a component you made
 
-	//class is reserved in js, so we need to use className for css
+	// class is reserved in js, so we need to use className for css
 	var App = function App() {
-		return React.createElement(
-			'div',
-			{ className: 'app-container' },
-			React.createElement(
-				'div',
-				{ className: 'home-info' },
-				React.createElement(
-					'h1',
-					{ className: 'title' },
-					'svideo'
-				),
-				React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
-				React.createElement(
-					'button',
-					{ className: 'browse-all' },
-					'or Browse All'
-				)
-			)
-		);
+	  return React.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    React.createElement(
+	      'div',
+	      { className: 'home-info' },
+	      React.createElement(
+	        'h1',
+	        { className: 'title' },
+	        'svideo'
+	      ),
+	      React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
+	      React.createElement(
+	        'button',
+	        { className: 'browse-all' },
+	        'or Browse All'
+	      )
+	    )
+	  );
 	};
 
 	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
