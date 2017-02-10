@@ -21554,6 +21554,9 @@
 
 	var React = __webpack_require__(1);
 
+	var _require = __webpack_require__(181),
+	    Link = _require.Link;
+
 	// stateless component
 	// </> slash is necessary because it says don'tlook for closing tag
 
@@ -21561,6 +21564,8 @@
 	// Caps state a component you made
 
 	// class is reserved in js, so we need to use className for css
+
+
 	var Landing = function Landing() {
 	  return React.createElement(
 	    'div',
@@ -21575,8 +21580,8 @@
 	      ),
 	      React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
 	      React.createElement(
-	        'button',
-	        { className: 'browse-all' },
+	        Link,
+	        { to: '/search', className: 'browse-all' },
 	        'or Browse All'
 	      )
 	    )
