@@ -1,21 +1,16 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
+const Landing = require('./Landing')
+const ReactRouter = require('react-router')
 
-// stateless component
-// </> slash is necessary because it says don'tlook for closing tag
+const { Router, Route, hashHistory } = ReactRouter
 
-// Lowercase says you want to use something native from React
-// Caps state a component you made
-
-// class is reserved in js, so we need to use className for css
+// Inside a router, we are going to have several routes.
+// hashHistory allows us to keep track of routes.
 const App = () => (
-  <div className='app-container'>
-    <div className='home-info'>
-      <h1 className='title'>svideo</h1>
-      <input className='search' type='text' placeholder='Search' />
-      <button className='browse-all'>or Browse All</button>
-    </div>
-  </div>
+  <Router history={hashHistory}>
+    <Route path='/' component={Landing} />
+  </Router>
 )
 
 ReactDOM.render(<App />, document.getElementById('app'))

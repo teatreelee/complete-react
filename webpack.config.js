@@ -27,7 +27,9 @@ module.exports = {
       {
         test: /\.jsx?$/, // makes sure that babel only looks for js or jsx files and not ext like css
         loader: 'babel-loader' // any with those file extensions should be run through this
-      }
+      },
+      test: /\.json$/,
+      loader: 'json-loader'
     ]
   }
 
