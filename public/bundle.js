@@ -26838,6 +26838,10 @@
 	var React = __webpack_require__(1);
 	var data = __webpack_require__(235);
 	var ShowCard = __webpack_require__(236);
+
+	// key is needed for console/webpack complaint to go away. \
+	// key is a unique identifier
+
 	var Search = function Search() {
 	  return React.createElement(
 	    'div',
@@ -26846,7 +26850,7 @@
 	      'div',
 	      { className: 'shows' },
 	      data.shows.map(function (show) {
-	        return React.createElement(ShowCard, { show: show });
+	        return React.createElement(ShowCard, { show: show, key: show.imbdID });
 	      })
 	    )
 	  );
