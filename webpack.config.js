@@ -19,16 +19,16 @@ module.exports = {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loader: "eslint-loader",
-        exclude: "  /node_modules/"
+        loader: 'eslint-loader',
+        exclude: '  /node_modules/'
       }
     ],
     loaders: [
       {
         test: /\.jsx?$/, // makes sure that babel only looks for js or jsx files and not ext like css
         loader: 'babel-loader' // any with those file extensions should be run through this
-      },{
-       test: /\.json$/,
+      }, {
+        test: /\.json$/,
         loader: 'json-loader'
       }
     ]
