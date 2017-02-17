@@ -26835,6 +26835,8 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var React = __webpack_require__(1);
 	var data = __webpack_require__(235);
 	var ShowCard = __webpack_require__(236);
@@ -26850,7 +26852,7 @@
 	      'div',
 	      { className: 'shows' },
 	      data.shows.map(function (show) {
-	        return React.createElement(ShowCard, { show: show, key: show.imbdID });
+	        return React.createElement(ShowCard, _extends({}, show, { key: show.imbdID }));
 	      })
 	    )
 	  );
@@ -27047,33 +27049,38 @@
 	  return React.createElement(
 	    'div',
 	    { className: 'show-card' },
-	    React.createElement('img', { src: 'public/img/posters/' + props.show.poster, className: 'show-card-img' }),
+	    React.createElement('img', { src: 'public/img/posters/' + props.poster, className: 'show-card-img' }),
 	    React.createElement(
 	      'div',
 	      { className: 'show-card-text' },
 	      React.createElement(
 	        'h3',
 	        { className: 'show-card-title' },
-	        props.show.title
+	        props.title
 	      ),
 	      React.createElement(
 	        'h4',
 	        { className: 'show-card-year' },
 	        '(',
-	        props.show.year,
+	        props.year,
 	        ')'
 	      ),
 	      React.createElement(
 	        'p',
 	        { className: 'show-card-description' },
-	        props.show.description
+	        props.description
 	      )
 	    )
 	  );
 	};
 
+	var string = React.PropTypes.string;
+
 	ShowCard.propTypes = {
-	  show: React.PropTypes.object.isRequired // tells react to expect an object
+	  title: string.isRequired,
+	  description: string.isRequired,
+	  year: string.isRequired,
+	  poster: string.isRequired
 	};
 
 	module.exports = ShowCard;
