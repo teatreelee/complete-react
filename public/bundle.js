@@ -26837,7 +26837,7 @@
 
 	var React = __webpack_require__(1);
 	var data = __webpack_require__(235);
-
+	var ShowCard = __webpack_require__(236);
 	var Search = function Search() {
 	  return React.createElement(
 	    'div',
@@ -26846,32 +26846,7 @@
 	      'div',
 	      { className: 'shows' },
 	      data.shows.map(function (show) {
-	        return React.createElement(
-	          'div',
-	          { className: 'show-card' },
-	          React.createElement('img', { src: 'public/img/posters/' + show.poster, className: 'show-card-img' }),
-	          React.createElement(
-	            'div',
-	            { className: 'show-card-text' },
-	            React.createElement(
-	              'h3',
-	              { className: 'show-card-title' },
-	              show.title
-	            ),
-	            React.createElement(
-	              'h4',
-	              { className: 'show-card-year' },
-	              '(',
-	              show.year,
-	              ')'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'show-card-description' },
-	              show.description
-	            )
-	          )
-	        );
+	        return React.createElement(ShowCard, { show: show });
 	      })
 	    )
 	  );
@@ -27055,6 +27030,45 @@
 			}
 		]
 	};
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var ShowCard = function ShowCard(props) {
+	  return React.createElement(
+	    'div',
+	    { className: 'show-card' },
+	    React.createElement('img', { src: 'public/img/posters/' + props.show.poster, className: 'show-card-img' }),
+	    React.createElement(
+	      'div',
+	      { className: 'show-card-text' },
+	      React.createElement(
+	        'h3',
+	        { className: 'show-card-title' },
+	        props.show.title
+	      ),
+	      React.createElement(
+	        'h4',
+	        { className: 'show-card-year' },
+	        '(',
+	        props.show.year,
+	        ')'
+	      ),
+	      React.createElement(
+	        'p',
+	        { className: 'show-card-description' },
+	        props.show.description
+	      )
+	    )
+	  );
+	};
+
+	module.exports = ShowCard;
 
 /***/ }
 /******/ ]);
