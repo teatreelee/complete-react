@@ -26842,13 +26842,38 @@
 	  return React.createElement(
 	    'div',
 	    { className: 'container' },
-	    data.shows.map(function (show) {
-	      return React.createElement(
-	        'h3',
-	        null,
-	        show.title
-	      );
-	    })
+	    React.createElement(
+	      'div',
+	      { className: 'shows' },
+	      data.shows.map(function (show) {
+	        return React.createElement(
+	          'div',
+	          { className: 'show-card' },
+	          React.createElement('img', { src: 'public/img/posters/' + show.poster, className: 'show-card-img' }),
+	          React.createElement(
+	            'div',
+	            { className: 'show-card-text' },
+	            React.createElement(
+	              'h3',
+	              { className: 'show-card-title' },
+	              show.title
+	            ),
+	            React.createElement(
+	              'h4',
+	              { className: 'show-card-year' },
+	              '(',
+	              show.year,
+	              ')'
+	            ),
+	            React.createElement(
+	              'p',
+	              { className: 'show-card-description' },
+	              show.description
+	            )
+	          )
+	        );
+	      })
+	    )
 	  );
 	};
 
