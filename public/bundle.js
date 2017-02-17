@@ -51,9 +51,11 @@
 	var Landing = __webpack_require__(178);
 	var Search = __webpack_require__(234);
 	var ReactRouter = __webpack_require__(179);
+	var Layout = __webpack_require__(237);
 
 	var Router = ReactRouter.Router,
 	    Route = ReactRouter.Route,
+	    IndexRoute = ReactRouter.IndexRoute,
 	    hashHistory = ReactRouter.hashHistory;
 
 	// Inside a router, we are going to have several routes.
@@ -63,8 +65,12 @@
 	  return React.createElement(
 	    Router,
 	    { history: hashHistory },
-	    React.createElement(Route, { path: '/', component: Landing }),
-	    React.createElement(Route, { path: '/search', component: Search })
+	    React.createElement(
+	      Route,
+	      { path: '/', component: Layout },
+	      React.createElement(IndexRoute, { component: Landing }),
+	      React.createElement(Route, { path: '/search', component: Search })
+	    )
 	  );
 	};
 
@@ -24991,9 +24997,9 @@
 		switch (opts.arrayFormat) {
 			case 'index':
 				return function (key, value, accumulator) {
-					result = /\[(\d*)\]$/.exec(key);
+					result = /\[(\d*)]$/.exec(key);
 
-					key = key.replace(/\[\d*\]$/, '');
+					key = key.replace(/\[\d*]$/, '');
 
 					if (!result) {
 						accumulator[key] = value;
@@ -25009,9 +25015,9 @@
 
 			case 'bracket':
 				return function (key, value, accumulator) {
-					result = /(\[\])$/.exec(key);
+					result = /(\[])$/.exec(key);
 
-					key = key.replace(/\[\]$/, '');
+					key = key.replace(/\[]$/, '');
 
 					if (!result || accumulator[key] === undefined) {
 						accumulator[key] = value;
@@ -27084,6 +27090,30 @@
 	};
 
 	module.exports = ShowCard;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Layout = function Layout(props) {
+	  return React.createElement(
+	    'div',
+	    { className: 'app-container' },
+	    props.children
+	  );
+	};
+
+	var element = React.PropTypes.element;
+
+
+	Layout.propTypes = {
+	  children: element.isRequired
+	};
+	module.exports = Layout;
 
 /***/ }
 /******/ ]);
