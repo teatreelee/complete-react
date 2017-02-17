@@ -4,8 +4,12 @@
   "description": "Welcome to a complete intro to React! The site actual workshop material for this repo can be found [here][gh-page]. On the master branch you will find the completed project. On the start branch you will find the barebones boilerplater of the project designed to help you get started.",
   "main": "index.js",
   "dependencies": {
+    "eslint-config-standard-react": "^4.2.0",
+    "eslint-loader": "^1.6.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "standard": "^9.0.0-beta.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
