@@ -27072,6 +27072,10 @@
 	  );
 	};
 
+	ShowCard.propTypes = {
+	  show: React.PropTypes.object.isRequired // tells react to expect an object
+	};
+
 	module.exports = ShowCard;
 
 /***/ }
