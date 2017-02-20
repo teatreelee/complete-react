@@ -21575,21 +21575,17 @@
 	var Landing = function Landing() {
 	  return React.createElement(
 	    'div',
-	    { className: 'app-container' },
+	    { className: 'home-info' },
 	    React.createElement(
-	      'div',
-	      { className: 'home-info' },
-	      React.createElement(
-	        'h1',
-	        { className: 'title' },
-	        'svideo'
-	      ),
-	      React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
-	      React.createElement(
-	        Link,
-	        { to: '/search', className: 'browse-all' },
-	        'or Browse All'
-	      )
+	      'h1',
+	      { className: 'title' },
+	      'svideo'
+	    ),
+	    React.createElement('input', { className: 'search', type: 'text', placeholder: 'Search' }),
+	    React.createElement(
+	      Link,
+	      { to: '/search', className: 'browse-all' },
+	      'or Browse All'
 	    )
 	  );
 	};
@@ -26850,19 +26846,32 @@
 	// key is needed for console/webpack complaint to go away. \
 	// key is a unique identifier
 
-	var Search = function Search() {
-	  return React.createElement(
-	    'div',
-	    { className: 'container' },
-	    React.createElement(
+	var Search = React.createClass({
+	  displayName: 'Search',
+	  render: function render() {
+	    return React.createElement(
 	      'div',
-	      { className: 'shows' },
-	      data.shows.map(function (show) {
-	        return React.createElement(ShowCard, _extends({}, show, { key: show.imbdID }));
-	      })
-	    )
-	  );
-	};
+	      { className: 'container' },
+	      React.createElement(
+	        'header',
+	        { className: 'header' },
+	        React.createElement(
+	          'h1',
+	          { className: 'brand' },
+	          'svideo'
+	        ),
+	        React.createElement('input', { className: 'search-input', type: 'text', placeholder: 'Search' })
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'shows' },
+	        data.shows.map(function (show) {
+	          return React.createElement(ShowCard, _extends({}, show, { key: show.imbdID }));
+	        })
+	      )
+	    );
+	  }
+	});
 
 	module.exports = Search;
 
