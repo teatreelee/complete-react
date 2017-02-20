@@ -5,6 +5,17 @@ const ShowCard = require('./ShowCard')
 // key is needed for console/webpack complaint to go away. \
 // key is a unique identifier
 
+
+
+//have to bind this when this syntaxis is uses
+// class Search extends React.Component {
+//   constructor(props) {
+//     super(props)
+
+//     this.handleSearchTermEvent = this.handleSearchTermEvent.bind(this)
+//   }
+// }
+
 const Search = React.createClass({
   getInitialState () {
     return {
