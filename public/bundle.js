@@ -26848,6 +26848,14 @@
 
 	var Search = React.createClass({
 	  displayName: 'Search',
+	  getInitialState: function getInitialState() {
+	    return {
+	      searchTerm: 'this is my seach term'
+	    };
+	  },
+	  handleSearchTermEvent: function handleSearchTermEvent(event) {
+	    this.setState({ searchTerm: event.target.value });
+	  },
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -26858,9 +26866,9 @@
 	        React.createElement(
 	          'h1',
 	          { className: 'brand' },
-	          'svideo'
+	          this.state.searchTerm
 	        ),
-	        React.createElement('input', { className: 'search-input', type: 'text', placeholder: 'Search' })
+	        React.createElement('input', { value: this.state.searchTerm, className: 'search-input', type: 'text', placeholder: 'Search', onChange: this.handleSearchTermEvent })
 	      ),
 	      React.createElement(
 	        'div',
