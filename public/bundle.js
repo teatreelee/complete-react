@@ -26846,17 +26846,28 @@
 	// key is needed for console/webpack complaint to go away. \
 	// key is a unique identifier
 
+	// have to bind this when this syntaxis is uses
+	// class Search extends React.Component {
+	//   constructor(props) {
+	//     super(props)
+
+	//     this.handleSearchTermEvent = this.handleSearchTermEvent.bind(this)
+	//   }
+	// }
+
 	var Search = React.createClass({
 	  displayName: 'Search',
 	  getInitialState: function getInitialState() {
 	    return {
-	      searchTerm: 'this is my seach term'
+	      searchTerm: ''
 	    };
 	  },
 	  handleSearchTermEvent: function handleSearchTermEvent(event) {
 	    this.setState({ searchTerm: event.target.value });
 	  },
 	  render: function render() {
+	    var _this = this;
+
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
@@ -26873,7 +26884,9 @@
 	      React.createElement(
 	        'div',
 	        { className: 'shows' },
-	        data.shows.map(function (show) {
+	        data.shows.filter(function (show) {
+	          return (show.title + ' ' + show.description).toUpperCase().indexOf(_this.state.searchTerm.toUpperCase()) >= 0;
+	        }).map(function (show) {
 	          return React.createElement(ShowCard, _extends({}, show, { key: show.imbdID }));
 	        })
 	      )

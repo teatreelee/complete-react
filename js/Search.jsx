@@ -5,9 +5,7 @@ const ShowCard = require('./ShowCard')
 // key is needed for console/webpack complaint to go away. \
 // key is a unique identifier
 
-
-
-//have to bind this when this syntaxis is uses
+// have to bind this when this syntaxis is uses
 // class Search extends React.Component {
 //   constructor(props) {
 //     super(props)
@@ -19,7 +17,7 @@ const ShowCard = require('./ShowCard')
 const Search = React.createClass({
   getInitialState () {
     return {
-      searchTerm: 'this is my seach term'
+      searchTerm: ''
     }
   },
   handleSearchTermEvent (event) {
@@ -33,8 +31,10 @@ const Search = React.createClass({
           <input value={this.state.searchTerm} className='search-input' type='text' placeholder='Search' onChange={this.handleSearchTermEvent} />
         </header>
         <div className='shows'>
-          {data.shows.map((show) => (
-            <ShowCard {...show} key={show.imbdID} />
+          {data.shows
+            .filter((show) => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+            .map((show) => (
+              <ShowCard {...show} key={show.imbdID} />
           ))}
         </div>
       </div>
